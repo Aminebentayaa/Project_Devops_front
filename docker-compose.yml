@@ -1,0 +1,21 @@
+version: '3'
+services:
+  backend:
+    image: ${DOCKER_IMAGE_Back_NAME}
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mydatabase
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=your_password
+
+  frontend:
+    image: ${DOCKER_IMAGE_Front_NAME}
+    ports:
+      - "80:80"
+
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=your_password
+      - MYSQL_DATABASE=mydatabase
