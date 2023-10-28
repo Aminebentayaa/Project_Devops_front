@@ -12,7 +12,7 @@ services:
   frontend:
     image: ${DOCKER_IMAGE_Front_NAME}
     ports:
-      - "80:80"
+      - "8085:80"
 
   mysql:
     image: mysql:latest
