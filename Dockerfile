@@ -1,8 +1,11 @@
 # Use an official Nginx image as a parent image
 FROM nginx:latest
 
-# Copy the built Angular app into the container
-COPY dist /usr/share/nginx/html
+# Copy the built Angular app files into the Nginx web server directory
+COPY dist/ /usr/share/nginx/html
 
-# Expose port 80 for the Nginx web server
+# Expose port 80 for web traffic
 EXPOSE 80
+
+# Start Nginx with the "daemon off;" option to run in the foreground
+CMD ["nginx", "-g", "daemon off;"]
