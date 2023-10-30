@@ -8,14 +8,22 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mydatabase
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=your_password
+    depends_on:
+      - mysql
 
   frontend:
     image: ${DOCKER_IMAGE_Front_NAME}
     ports:
-      - "8085:80"
+      - "80:80"
+    depends_on:
+      - backend
 
   mysql:
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=your_password
       - MYSQL_DATABASE=mydatabase
+    ports:
+      - "3306:3306"  
+
+    
