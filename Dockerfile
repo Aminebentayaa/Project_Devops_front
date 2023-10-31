@@ -1,6 +1,7 @@
 # Use an official Nginx image as a parent image
 FROM nginx:latest
 
+COPY my-nginx.conf /etc/nginx/nginx.conf
 # Copy the built Angular app files into the Nginx web server directory
 COPY dist/ /usr/share/nginx/html
 
