@@ -15,7 +15,7 @@ services:
     image: google/cadvisor:latest
     container_name: cadvisor
     ports:
-      - 8082:8082
+      - 8089:8089
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
