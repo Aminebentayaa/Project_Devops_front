@@ -6,9 +6,9 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./prometheus:/etc/prometheus
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"  
+      - /apps/prometheus/configs/prometheus.yaml:/etc/prometheus/prometheus.yaml
+      - /data/prometheus:/prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml  
     networks:
       - monitoring
     # Add your Prometheus configuration here
