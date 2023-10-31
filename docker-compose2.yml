@@ -13,15 +13,7 @@ services:
       - '9090:9090'
     networks:
       - monitoring
-      
-  sidecar-proxy:
-    image: nginx:latest
-    hostname: sidecar-proxy
-    ports:
-      - '8082:80'  # Use a different port than Prometheus
-  
-    networks:
-      - monitoring
+    
 
   node-exporter:
     image: prom/node-exporter
