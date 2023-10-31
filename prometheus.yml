@@ -6,7 +6,7 @@ scrape_configs:
       - prometheus:9090
       - node-exporter:9100
       - pushgateway:9091
-      - cadvisor:8080
+      - cadvisor:8082
 
   - job_name: docker
     scrape_interval: 5s
