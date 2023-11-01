@@ -21,6 +21,6 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
     - targets:
-      - 192.168.33.10:8080  # Change this to the port your application exposes metrics on
-
+      - 192.168.33.10:8087  # Change this to the port your application exposes metrics on
+      - 192.168.33.10:8083 
 # Additional configuration options can go here
