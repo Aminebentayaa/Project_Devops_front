@@ -4,7 +4,7 @@ const promClient = require('prom-client');
 
 const metricsInterval = promClient.collectDefaultMetrics();
 const app = express();
-const port = 80;  // The port your application exposes metrics on
+const port = 8087;  // The port your application exposes metrics on
 
 // Create a metric for tracking requests
 const httpRequestDurationMicroseconds = new promClient.Histogram({
