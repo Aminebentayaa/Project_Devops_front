@@ -18,6 +18,6 @@ scrape_configs:
   - job_name: Devops_project
     scrape_interval: 5s
     static_configs:
-    - targets: [192.168.33.10:80] 
+    - targets: ["192.168.33.10:80"] 
       
       
