@@ -1,3 +1,6 @@
+global:
+  scrape_interval: 15s
+
 scrape_configs:
   - job_name: prometheus
     scrape_interval: 5s
@@ -8,9 +11,16 @@ scrape_configs:
       - pushgateway:9091
       - cadvisor:8089
 
+  - job_name: docker
+    scrape_interval: 5s
+    static_configs:
+    - targets:
+      - 192.168.33.10:9323
+
   - job_name: Devops_project
     scrape_interval: 5s
     static_configs:
     - targets:
-      - "192.168.33.10:80"
-    metrics_path: /metrics
+      - 192.168.33.10:8080  # Change this to the port your application exposes metrics on
+
+# Additional configuration options can go here
