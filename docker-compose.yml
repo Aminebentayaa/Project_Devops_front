@@ -7,7 +7,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/devops
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_DATASOURCE_PASSWORD=
     depends_on:
       - mysql
 
@@ -21,7 +21,7 @@ services:
   mysql:
     image: mysql:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=
       - MYSQL_DATABASE=devops
     ports:
       - "3306:3306"  
