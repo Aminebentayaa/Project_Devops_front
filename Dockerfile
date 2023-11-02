@@ -1,17 +1,23 @@
-# Use an official Nginx image as a parent image
-FROM nginx:latest
+FROM node:18.10-alpine AS build
+# Create a Virtual directory inside the docker image
+WORKDIR /app
+# Copy files to virtual directory
+# COPY package.json package-lock.json ./
+# Run command in Virtual directory
+RUN npm cache clean --force
+# Copy files from local machine to virtual directory in docker image
+COPY . .
+RUN npm install --force
+RUN npm run build --prod
 
-# Remove the default Nginx configuration file
-RUN rm /etc/nginx/conf.d/default.conf
 
-# Copy your custom Nginx configuration
-COPY my-nginx.conf /etc/nginx/nginx.conf
-
-# Copy the built Angular app files into the Nginx web server directory
-COPY dist/ /usr/share/nginx/html
-
-# Expose port 80 for web traffic
+### STAGE 2:RUN ###
+# Defining nginx image to be used
+FROM nginx:latest AS ngi
+# Copying compiled code and nginx config to different folder
+# NOTE: This path may change according to your project's output folder 
+COPY --from=build /app/dist/* /usr/share/nginx/html/
+COPY /my-nginx.conf  /etc/nginx/conf.d/default.conf
+# Exposing a port, here it means that inside the container 
+# the app will be using Port 80 while running
 EXPOSE 80
-
-# Start Nginx with the "daemon off;" option to run in the foreground
-CMD ["nginx", "-g", "daemon off;"]
