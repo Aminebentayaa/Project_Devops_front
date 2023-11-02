@@ -1,8 +1,7 @@
-const express = require('express');
-const promBundle = require('express-prom-bundle');
-const promClient = require('prom-client');
+import * as express from 'express';
+import * as promBundle from 'express-prom-bundle';
+import * as promClient from 'prom-client';
 
-const metricsInterval = promClient.collectDefaultMetrics();
 const app = express();
 const port = 8087;  // The port your application exposes metrics on
 
