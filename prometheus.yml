@@ -10,9 +10,11 @@ scrape_configs:
       - pushgateway:9091
 
   - job_name: Jenkins
+    metrics_path: /prometheus
     static_configs:
     - targets: ['192.168.33.10:8080']
 
   - job_name: Devops_project
+    metrics_path: /prometheus
     static_configs:
     - targets: ['192.168.33.10:8087']
