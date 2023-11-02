@@ -3,7 +3,7 @@ services:
   backend:
     image: ${DOCKER_IMAGE_Back_NAME}
     ports:
-      - "8083:8083"
+      - "8082:8082"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mydatabase
       - SPRING_DATASOURCE_USERNAME=root
