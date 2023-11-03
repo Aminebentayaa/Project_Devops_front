@@ -13,7 +13,7 @@ services:
       - mysql_data:/var/lib/mysql
 
   springboot-app:
-    image: dalidas/springboot_devops   # Assurez-vous d'utiliser la bonne version de l'image
+    image: brain99/devops_project_back   # Assurez-vous d'utiliser la bonne version de l'image
     container_name: springboot-app
     depends_on:
       - mysqldb
@@ -27,7 +27,7 @@ services:
 
 
   front-end:
-    image: dalidas/devops_angular  # Assurez-vous que l'image correcte est disponible sur Docker Hub
+    image: brain99/devops_project_front  # Assurez-vous que l'image correcte est disponible sur Docker Hub
     container_name: front-end
     ports:
       - "80:80"  # Vous pouvez mapper le port 80 du conteneur au port 80 de l'hôte
