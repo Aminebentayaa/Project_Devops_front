@@ -31,12 +31,12 @@ services:
       
   nginx-exporter:
     image: "nginx/nginx-prometheus-exporter:latest"
-    container_name: nginx-exporter
+    command: ["-nginx.scrape-uri=http://angular:80/metrics"]  # Adjust this command
     ports:
       - "9113:9113"
-    links:
-      - angular
-
+    depends_on:
+      - angular  # Depend on the frontend service
+    
   
 
 volumes:
