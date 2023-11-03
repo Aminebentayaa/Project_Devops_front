@@ -30,6 +30,6 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=password
     depends_on:
       - prometheus
-  version: "3.9"
+ 
 
 
