@@ -33,7 +33,6 @@ services:
       
   nginx-exporter:
     image: "nginx/nginx-prometheus-exporter:latest"
-    command: ["-nginx.scrape-uri=http://192.168.33.10:80/metrics"]
     ports:
       - "9113:9113"
 
