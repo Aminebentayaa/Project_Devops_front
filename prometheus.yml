@@ -19,7 +19,7 @@ scrape_configs:
     static_configs:
     - targets: ['192.168.33.10:8082'] 
     
-  - job_name: 'nginx-exporter'
+  - job_name: 'Angular-exporter'
     static_configs:
     - targets: ['192.168.33.10:9113']
 
