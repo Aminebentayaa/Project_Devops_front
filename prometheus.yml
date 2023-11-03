@@ -20,10 +20,9 @@ scrape_configs:
     static_configs:
     - targets: ['192.168.33.10:8082'] 
     
-  - job_name: 'nginx'
-    metrics_path: /metrics
+  - job_name: 'nginx-exporter'
     static_configs:
-    - targets: ['192.168.33.10:9113']
+    - targets: ['nginx-exporter:9113']
 
   - job_name: mysql
     scrape_interval: 5s
