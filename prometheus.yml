@@ -6,8 +6,7 @@ scrape_configs:
     static_configs:
     - targets:
       - prometheus:9090
-      - node-exporter:9100
-      - pushgateway:9091
+    
 
   - job_name: Jenkins
     metrics_path: /prometheus
@@ -25,9 +24,5 @@ scrape_configs:
     - targets: ['192.168.33.10:9113']
 
 
-  - job_name: mysql
-    scrape_interval: 5s
-    metrics_path: /actuator/prometheus  # Le chemin où votre application expose les métriques
-    static_configs:
-    - targets: ['mysql:3306']  # Remplacez "backend-container-ip" par l'adresse IP du conteneur Backend
+  
 
