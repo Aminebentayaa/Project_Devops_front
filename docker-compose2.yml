@@ -30,10 +30,6 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=password
     depends_on:
       - prometheus
-      
-  nginx-exporter:
-    image: "nginx/nginx-prometheus-exporter:latest"
-    ports:
-      - "9113:9113"
+
 
 
