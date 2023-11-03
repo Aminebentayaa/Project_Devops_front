@@ -23,7 +23,7 @@ scrape_configs:
     scrape_interval: 5s
     metrics_path: /actuator/prometheus  # Le chemin où votre application expose les métriques
     static_configs:
-    - targets: ['192.168.33.10:8083']  # Remplacez "backend-container-ip" par l'adresse IP du conteneur Backend
+    - targets: ['192.168.33.10:8082']  # Remplacez "backend-container-ip" par l'adresse IP du conteneur Backend
 
   - job_name: mysql
     scrape_interval: 5s
