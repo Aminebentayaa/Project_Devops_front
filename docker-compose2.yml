@@ -30,4 +30,14 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=password
     depends_on:
       - prometheus
-      
+  version: "3.9"
+
+  web:
+    build: .
+    ports:
+      - "3001:3001"
+  nginx-exporter:
+    image: "nginx/nginx-prometheus-exporter:latest"
+    command: ["-nginx.scrape-uri=http://web:3001/metrics"]
+    ports:
+      - "9113:9113"
