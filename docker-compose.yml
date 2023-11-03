@@ -6,34 +6,34 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: devops
-    
     ports:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
   spring:
-    image: brain99/devops_project_back:spring   # Assurez-vous d'utiliser la bonne version de l'image
+    image: brain99/devops_project_back:spring
     container_name: springboot-app
     depends_on:
       - mysqldb
-
     ports:
       - "8082:8082"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/devopsjdbc:mysql?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/devops
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
 
-
   angular:
-    image: brain99/devops_project_front:angular  # Assurez-vous que l'image correcte est disponible sur Docker Hub
+    image: brain99/devops_project_front:angular
     container_name: front-end
     ports:
-      - "80:80"  # Vous pouvez mapper le port 80 du conteneur au port 80 de l'hôte
+      - "80:80"
    
-
-
+  nginx-exporter:
+    image: "nginx/nginx-prometheus-exporter:latest"
+    command: ["-nginx.scrape-uri=http://angular:80/metrics"]
+    ports:
+      - "9113:9113"
 
 volumes:
   mysql_data:
