@@ -35,7 +35,7 @@ services:
     ports:
       - "9113:9113"
     links:
-      - front-end
+      - angular
 
   
 
