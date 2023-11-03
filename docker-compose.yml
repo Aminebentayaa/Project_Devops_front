@@ -12,7 +12,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  springboot-app:
+  spring:
     image: brain99/devops_project_back   # Assurez-vous d'utiliser la bonne version de l'image
     container_name: springboot-app
     depends_on:
@@ -26,7 +26,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: ""
 
 
-  front-end:
+  angular:
     image: brain99/devops_project_front  # Assurez-vous que l'image correcte est disponible sur Docker Hub
     container_name: front-end
     ports:
