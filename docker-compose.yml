@@ -28,7 +28,14 @@ services:
     container_name: front-end
     ports:
       - "80:80"
-   
+      
+  nginx-exporter:
+    image: "nginx/nginx-prometheus-exporter:latest"
+    ports:
+      - "9113:9113"
+    links:
+      - front-end
+
   
 
 volumes:
